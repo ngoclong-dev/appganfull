@@ -8,7 +8,7 @@ const ProfileScreen = () => {
     
   return (
     <View style={UserSettingsStyles.ProfileScreenContainer}>
-      <UserInfo/>
+      {/* <UserInfo/> */}
       <LogoutButton/>
       
     </View>

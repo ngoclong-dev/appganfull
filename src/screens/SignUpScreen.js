@@ -62,11 +62,122 @@ const SignUpScreen = ({ navigation }) => {
           lastName: data.lastName,
         });
         setLoading(false);
-        alert("Account Created");
+        Alert.alert(
+          "Đăng ký thành công",
+          "Vui lòng đăng nhập",
+          [
+            {
+              text: "Đăng nhập",
+             
+            }
+           
+          ]
+        );
         navigation.navigate("SignIn");
       }
     );
   };
+  const checkTextInput = () => {
+    if(userInfo.email==""&&userInfo.password==""&&userInfo.lastName==""&&userInfo.firstName==""&&userInfo.password==""&&userInfo.confirmPassword=="")
+      {
+        Alert.alert(
+          "Cảnh báo !",
+          "Vui lòng không để trống",
+          [
+            {
+              text: "Đồng ý",
+
+            }
+          
+          ]
+        );  
+        return;
+      }
+      else if (userInfo.email=="") {
+        Alert.alert(
+          "Cảnh báo !",
+          "Vui lòng nhập Email",
+          [
+            {
+              text: "Đồng ý",
+            }
+          ]
+        );
+
+        return;
+      }
+      //Check for the Email TextInput
+      else if (userInfo.password=="") {
+  
+        Alert.alert(
+          "Cảnh báo !",
+          "Nhập mật khẩu",
+          [
+            {
+              text: "Đồng ý",
+
+            }
+          
+          ]
+        );
+  
+        return;
+      }
+  
+      else if (userInfo.password!=userInfo.confirmPassword) {
+  
+        Alert.alert(
+          "Cảnh báo !",
+          "Xác nhận mật khẩu không đúng",
+          [
+            {
+              text: "Đồng ý",
+
+            }
+          
+          ]
+        );
+  
+        return;
+      }
+  
+      else if (userInfo.password.length<8) {
+  
+        Alert.alert(
+          "Cảnh báo !",
+          "Mật khẩu phải trên 8 ký tự",
+          [
+            {
+              text: "Đồng ý",
+
+            }
+          
+          ]
+        );
+        return;
+      }
+      else if (userInfo.lastName.length<2 || userInfo.firstName.length<2) {
+  
+        Alert.alert(
+          "Cảnh báo !",
+          "Tên hoặc Họ phải trên 2 ký tự",
+          [
+            {
+              text: "Đồng ý",
+            }
+          
+          ]
+        );
+  
+        return;
+      }
+      else
+      {
+        handleChange()
+
+      }
+  };
+  
 
   return (
     <View style={SignStyles.container}>
@@ -125,7 +236,7 @@ const SignUpScreen = ({ navigation }) => {
           ...SignStyles.submitbutton2,
           ...(loading ? SignStyles.disableButton : SignStyles.enableButton),
         }}
-        onPress={submitUser}
+        onPress={checkTextInput}
         disabled={loading}
       >
         <Text style={SignStyles.buttonText}>Đăng ký</Text>
