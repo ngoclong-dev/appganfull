@@ -32,7 +32,6 @@ const MessageInput = ({
     }
   };
 
-  // MapView methods starts
   const mapRef = useRef();
   const getCurrentLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -62,7 +61,6 @@ const MessageInput = ({
   useEffect(() => {
     if (showMap) getCurrentLocation();
   }, [showMap]);
-  // MapView methods end
 
   return (
     <>
@@ -95,24 +93,24 @@ const MessageInput = ({
             activeOpacity={0.5}
             style={[
               styles.smileybutton,
-              { backgroundColor: showEmojiModal ? "orange" : "gray" },
+              { backgroundColor: showEmojiModal ? "#1877f2" : "gray" },
             ]}
           >
             <Octicons name="smiley" size={24} color="white" />
           </TouchableOpacity>
           <TextInput
-            placeholder="Message..."
+            placeholder="Nhập tin nhắn..."
             style={styles.textInput}
             value={input}
             onChangeText={(text) => setInput(text)}
           />
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={toggleLocationShare}
             activeOpacity={0.5}
             style={styles.locationbutton}
           >
             <MaterialIcons name="location-on" size={24} color="gray" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <TouchableOpacity
           activeOpacity={0.5}

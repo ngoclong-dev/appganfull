@@ -11,7 +11,7 @@ const ContactListScreen = ({ navigation }) => {
   // Header styles
   useEffect(() => {
     navigation.setOptions({
-      headerStyle: { backgroundColor: "orange" },
+      headerStyle: { backgroundColor: "#1877f2" },
       headerTitleStyle: {
         fontWeight: "bold",
         color: "white",

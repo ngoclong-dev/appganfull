@@ -34,7 +34,7 @@ const ChatListItem = ({ item }) => {
   }, [chatMessagesList]);
  
 
-  // Set messages of this chat according id
+// Đặt tin nhắn của cuộc trò chuyện này theo id
   useEffect(() => {
     const q = query(
       collection(db, `chats/${item?.id}/messages`),
@@ -55,7 +55,7 @@ const ChatListItem = ({ item }) => {
     () => unsubscribe();
   }, [db]);
 
-  // Get contact info to show on list
+// Lấy thông tin liên hệ để hiển thị trên danh sách
   useEffect(() => {
     const getContactInfo = async () => {
       const docRefMembers = doc(db, "chats", item?.id);
@@ -79,10 +79,10 @@ const ChatListItem = ({ item }) => {
       const lastMsg = new Date(lastMessage?.timestamp?.seconds * 1000);
       const oneDayAsSeconds = 86400000;
       if (ToDay - lastMsg > oneDayAsSeconds) {
-        // if last message is 24 hours ago show date
-        return lastMsg.toLocaleDateString();
+    // nếu tin nhắn cuối cùng là 24 giờ trước hiển thị ngày
+      return lastMsg.toLocaleDateString();
       } else {
-        // if last message is in 24 hours show hours
+      // nếu tin nhắn cuối cùng trong 24 giờ hiển thị giờ
         return lastMsg
           .toLocaleTimeString()
           .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");

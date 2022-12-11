@@ -26,7 +26,7 @@ const ChatScreen = ({ navigation }) => {
     navigation.setOptions({
       headerTitle: "",
       headerStyle: {
-        backgroundColor: "orange",
+        backgroundColor: "#1877f2",
       },
       headerLeft: () => <ChatHeaderLeft contactId={contactId} />,
     });
@@ -35,9 +35,10 @@ const ChatScreen = ({ navigation }) => {
   const sendMessage = async () => {
     if (input.trim() === "" && location === "") return;
 
-    //handle create chat / send msg
+    //xử lý tạo trò chuyện/gửi tin nhắn
     if (chatMessagesList === undefined) {
-      // handle create chat + send msg
+      // xử lý tạo trò chuyện + gửi tin nhắn
+
       const docRef = await addDoc(collection(db, `chats`), {
         members: [user.id, contactId],
       });
@@ -52,8 +53,10 @@ const ChatScreen = ({ navigation }) => {
         }
       );
 
-      // Add new message to message list and update this chat's messageId
-      // After update: message list appears and header changes
+      // Thêm tin nhắn mới vào danh sách tin nhắn và cập nhật id tin nhắn của cuộc trò chuyện này
+
+      // Sau khi cập nhật: danh sách thông báo xuất hiện và tiêu đề thay đổi
+
       const docSnap = await getDoc(docRef2);
       dispatch(
         setMessages({
@@ -63,7 +66,8 @@ const ChatScreen = ({ navigation }) => {
       );
       setMessageId(docRef?.id);
     } else {
-      // handle send msg
+      // xử lý gửi tin nhắn
+
       const docRef = await addDoc(
         collection(db, `chats/${messageId}/messages`),
         {

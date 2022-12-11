@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RTalk-ChatApp-ReactNative",
-    "slug": "RTalk-ChatApp-ReactNative",
+    "name": "group4appchat",
+    "slug": "group4appchat",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -37,7 +37,9 @@
         "FOREGROUND_SERVICE"
 
       ],
-      "package": "com.furu1414.RTalkChatAppReactNative"
+      "package": "com.group4.appchat",
+      "versionCode": 1 
+
     },
     "web": {
       "favicon": "./assets/favicon.png"

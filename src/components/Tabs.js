@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-evenly",
-    backgroundColor: "orange",
+    backgroundColor: "white",
     paddingBottom: 8,
   },
   tab: {
-    color: "white",
+    color: "#5f6771",
     fontWeight: "800",
     fontSize: 14,
     textAlign: "center",
@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
     
   },
   selectedTab: {
-    color: "white",
+    color: "#1877f2",
     fontWeight: "800",
     fontSize: 14,
-    borderBottomColor: "white",
+    borderBottomColor: "#1877f2",
     borderBottomWidth: 2,
     textAlign: "center",
     width:100,

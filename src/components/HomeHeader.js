@@ -14,13 +14,13 @@ const HomeHeader = () => {
     <View style={HomeHeaderStyles.homeHeaderContainer}>
       <View style={HomeHeaderStyles.headerTop}>
       <Text style={HomeHeaderStyles.title}>{title}</Text>
-      <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
+      {/* <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
         <MaterialCommunityIcons
           name="account-settings"
           size={32}
           style={HomeHeaderStyles.accountIcon}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       </View>
       <Tabs navigation={navigation} routeName={route?.name}/>
     </View>

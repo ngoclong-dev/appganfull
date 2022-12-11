@@ -5,7 +5,7 @@ export default HomeHeaderStyles = StyleSheet.create({
    
   },
   headerTop:{
-    backgroundColor: "orange",
+    backgroundColor:"white",
     height: 60,
     padding: 12,
     flexDirection: "row",
@@ -13,7 +13,7 @@ export default HomeHeaderStyles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    color: "white",
+    color: "#1877f2",
     fontWeight: "700",
     fontSize: 24,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
@@ -21,7 +21,7 @@ export default HomeHeaderStyles = StyleSheet.create({
     textShadowRadius: 5
   },
   accountIcon: {
-    color: "white",
+    color: "#1877f2",
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 2

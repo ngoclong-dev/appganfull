@@ -26,6 +26,23 @@ const SignUpScreen = ({ navigation }) => {
       [name]: e,
     }));
   };
+
+   // veryemail
+   const[email1,onChangEmail] = useState('');
+   const[isValidEmail,setValidEmail] = useState(true);
+   const verifyEmail = (email) =>{
+     if(!email) return true
+     let regex = new RegExp(/([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])/);
+ 
+     if(regex.test(email)){  // todo
+       return true;
+ 
+     }
+     return false
+     
+   }
+
+
   const submitUser = async () => {
     handleSignUp(userInfo);
     //const jsonValue = JSON.stringify(userInfo);
@@ -69,11 +86,26 @@ const SignUpScreen = ({ navigation }) => {
         onChangeText={(e) => handleChange(e, "lastName")}
       />
       <TextInput
-        style={SignStyles.textInput}
+        style={SignStyles.textInput1}
         placeholder="Email"
-        value={userInfo?.email}
-        onChangeText={(e) => handleChange(e, "email")}
+        // value={userInfo?.email}
+        // onChangeText={(e) => handleChange(e, "email")}
+
+        onChangeText={(text)=>
+          {
+            onChangEmail(text);
+            const isvalid = verifyEmail(text);
+            isvalid? setValidEmail(true):setValidEmail(false)
+            handleChange(text,"email")
+          }
+    
+        }
+        // value={userInfo?.email}
+        value={email1}
+
       />
+            <Text style={{fontSize:10,color:'red',marginLeft: 32,}}>{isValidEmail?'':'Email không hợp lệ!'} </Text>
+
       <TextInput
         style={SignStyles.textInput}
         placeholder="Mật khẩu"
